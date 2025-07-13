@@ -1,0 +1,23 @@
+import { config } from 'dotenv';
+config();
+
+import '@/ai/flows/generate-thumbnail.ts';
+import '@/ai/flows/generate-thumbnail-prompt.ts';
+import '@/ai/flows/suggest-overlay-text.ts';
+import '@/ai/flows/enhance-seo.ts';
+import '@/ai/flows/rewrite-script.ts';
+import '@/ai/flows/generate-aso.ts';
+import '@/ai/flows/generate-app-icon.ts';
+import '@/ai/flows/translate-app-metadata.ts';
+import '@/ai/flows/generate-youtube-tags.ts';
+import '@/ai/flows/generate-youtube-titles.ts';
+import '@/ai/flows/generate-tiktok-hook.ts';
+import '@/ai/flows/generate-tiktok-caption.ts';
+import '@/ai/flows/generate-tiktok-hashtag.ts';
+import '@/ai/flows/generate-tiktok-video-idea.ts';
+import '@/ai/flows/generate-tiktok-script.ts';
+import '@/ai/flows/generate-tiktok-voiceover.ts';
+import '@/ai/flows/generate-tiktok-bio.ts';
+import '@/ai/flows/generate-tiktok-cta.ts';
+import '@/ai/flows/generate-veo-prompt.ts';
+import '@/ai/flows/generate-privacy-policy.ts';
