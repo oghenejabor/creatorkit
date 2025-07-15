@@ -28,6 +28,12 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -218,54 +224,90 @@ export default function ToolsLayout({
                     <span className="font-headline text-lg font-bold">CreatorKit AI</span>
                   </SheetTitle>
                 </SheetHeader>
-                <nav className="grid gap-4 py-4 text-muted-foreground">
-                  <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground"><Youtube className="h-4 w-4" /> YouTube Tools</h3>
-                  {youtubeTools.map(item => (
-                    <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
-                      <item.icon className="h-4 w-4" />{item.label}
-                    </Link>
-                  ))}
-
-                  <Separator className="my-2" />
-                  
-                  <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground"><Store className="h-4 w-4" /> App Store Tools</h3>
-                  {appStoreTools.map(item => (
-                    <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
-                      <item.icon className="h-4 w-4" />{item.label}
-                    </Link>
-                  ))}
-
-                   <Separator className="my-2" />
-                   
-                  <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground"><TiktokIcon /> TikTok Tools</h3>
-                  {tiktokTools.map(item => (
-                    <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
-                      <item.icon className="h-4 w-4" />{item.label}
-                    </Link>
-                  ))}
-
-                  <Separator className="my-2" />
-
-                  <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground"><Clapperboard className="h-4 w-4" /> Video Gen Tools</h3>
-                  {videoGenTools.map(item => (
-                    <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
-                      <item.icon className="h-4 w-4" />{item.label}
-                    </Link>
-                  ))}
-
-                   <Separator className="my-2" />
-
-                   {otherTools.map(item => (
-                    <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
-                      <item.icon className="h-4 w-4" />{item.label}
-                    </Link>
-                  ))}
-
-                  <Separator className="my-2" />
-
-                  <h3 className="text-sm font-semibold text-foreground">Legal</h3>
+                <div className="flex-1 overflow-y-auto">
+                    <Accordion type="multiple" className="w-full">
+                        <AccordionItem value="youtube">
+                            <AccordionTrigger>
+                                <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                                    <Youtube className="h-4 w-4" /> YouTube Tools
+                                </div>
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                <nav className="grid gap-1 pl-4">
+                                {youtubeTools.map(item => (
+                                    <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
+                                    <item.icon className="h-4 w-4" />{item.label}
+                                    </Link>
+                                ))}
+                                </nav>
+                            </AccordionContent>
+                        </AccordionItem>
+                        
+                        <AccordionItem value="appstore">
+                             <AccordionTrigger>
+                                <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                                    <Store className="h-4 w-4" /> App Store Tools
+                                </div>
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                <nav className="grid gap-1 pl-4">
+                                {appStoreTools.map(item => (
+                                    <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
+                                    <item.icon className="h-4 w-4" />{item.label}
+                                    </Link>
+                                ))}
+                                </nav>
+                            </AccordionContent>
+                        </AccordionItem>
+                        
+                        <AccordionItem value="tiktok">
+                            <AccordionTrigger>
+                                <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                                    <TiktokIcon /> TikTok Tools
+                                </div>
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                <nav className="grid gap-1 pl-4">
+                                {tiktokTools.map(item => (
+                                    <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
+                                    <item.icon className="h-4 w-4" />{item.label}
+                                    </Link>
+                                ))}
+                                </nav>
+                            </AccordionContent>
+                        </AccordionItem>
+                        
+                        <AccordionItem value="videogen">
+                            <AccordionTrigger>
+                                <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                                    <Clapperboard className="h-4 w-4" /> Video Gen Tools
+                                </div>
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                <nav className="grid gap-1 pl-4">
+                                {videoGenTools.map(item => (
+                                    <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
+                                    <item.icon className="h-4 w-4" />{item.label}
+                                    </Link>
+                                ))}
+                                </nav>
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
+                    <Separator className="my-4"/>
+                     <nav className="grid gap-1">
+                        {otherTools.map(item => (
+                            <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
+                            <item.icon className="h-4 w-4" />{item.label}
+                            </Link>
+                        ))}
+                    </nav>
+                </div>
+                <Separator className="my-4"/>
+                 <nav className="grid gap-2 text-sm">
+                  <h3 className="px-3 font-semibold text-foreground">Legal</h3>
                    {legalNavItems.map(item => (
-                    <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
+                    <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
                       {item.label}
                     </Link>
                   ))}
