@@ -115,5 +115,10 @@ export const defaultSeoData: Record<string, SeoData> = {
     title: 'App Privacy Policy Generator | CreatorKit AI',
     description: 'Generate a free, custom privacy policy and terms & conditions for your mobile app. Ensure compliance and protect your users.',
     keywords: ['privacy policy generator', 'terms and conditions generator', 'app legal documents', 'free privacy policy', 'gdpr'],
+    },
+  'tiktok-downloader': {
+    title: 'TikTok Video Downloader | CreatorKit AI',
+    description: 'Download TikTok videos without watermarks for free. Simply paste the TikTok URL and get your downloadable MP4 video file instantly.',
+    keywords: ['tiktok downloader', 'download tiktok video', 'tiktok video saver', 'no watermark tiktok'],
   },
 };

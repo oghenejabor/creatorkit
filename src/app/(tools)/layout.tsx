@@ -17,6 +17,7 @@ import {
   Type,
   ChevronDown,
   Clapperboard,
+  Download,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -70,6 +71,10 @@ const tiktokTools = [
 const videoGenTools = [
   { href: '/veo-prompt-writer', label: 'Veo Prompt Writer', icon: Clapperboard },
 ];
+
+const videoTools = [
+    { href: '/tiktok-downloader', label: 'TikTok Downloader', icon: Download },
+]
 
 const otherTools = [
   { href: '/image-overlay', label: 'Image Overlay', icon: TextQuote },
@@ -195,6 +200,26 @@ export default function ToolsLayout({
                 </DropdownMenuContent>
               </DropdownMenu>
 
+               <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="gap-1 px-3">
+                    <Download className="h-4 w-4" />
+                    <span>Video Tools</span>
+                    <ChevronDown className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start">
+                  {videoTools.map(item => (
+                    <DropdownMenuItem key={item.href} asChild>
+                      <Link href={item.href} className="flex items-center gap-2">
+                        <item.icon className="h-4 w-4" />
+                        <span>{item.label}</span>
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+
               {otherTools.map(item => (
                 <Button key={item.href} variant="ghost" asChild className="px-3">
                   <NavLink href={item.href}>
@@ -286,6 +311,23 @@ export default function ToolsLayout({
                             <AccordionContent>
                                 <nav className="grid gap-1 pl-4">
                                 {videoGenTools.map(item => (
+                                    <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
+                                    <item.icon className="h-4 w-4" />{item.label}
+                                    </Link>
+                                ))}
+                                </nav>
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem value="videotools">
+                            <AccordionTrigger>
+                                <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                                    <Download className="h-4 w-4" /> Video Tools
+                                </div>
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                <nav className="grid gap-1 pl-4">
+                                {videoTools.map(item => (
                                     <Link key={item.href} href={item.href} className={cn('flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary', pathname === item.href && 'text-primary bg-muted')}>
                                     <item.icon className="h-4 w-4" />{item.label}
                                     </Link>

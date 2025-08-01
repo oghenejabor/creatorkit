@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next';
 import { defaultSeoData } from '@/lib/seo-defaults';
+import { getSiteConfig } from '@/lib/site-config-service';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = 'https://creatorkit.ai';
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const { domain: siteUrl } = await getSiteConfig();
 
   const toolPages = Object.keys(defaultSeoData)
     .map((key) => {
